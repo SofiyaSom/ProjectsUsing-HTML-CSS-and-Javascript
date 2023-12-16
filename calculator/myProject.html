@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>calculator</title>
+    <style>
+        body {
+    background-color: whitesmoke;
+}
+button {
+    background-color: #f4d7dc;
+    border: none;
+    color: #900604;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px rgba(154, 6, 4, 0.5);
+}
+
+button:hover {
+    background-color: #ffc2d4;
+}
+
+button:active {
+    background-color: #e5aebf;
+    box-shadow: 0 5px #ff7b89 inset;
+    transform: translateY(4px);
+}
+
+.displayOn {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+    </style>
+</head>
+<body>
+    <p class="displayOn calculate"></p>
+
+    <p>
+        <button onclick="updateCal('1');">1</button>
+        <button onclick="updateCal('2');">2</button>
+        <button onclick="updateCal('3');">3</button>
+        <button onclick="updateCal('+');">+</button>
+    </p>
+    <p>
+        <button onclick="updateCal('4');">4</button>
+        <button onclick="updateCal('5');">5</button>
+        <button onclick="updateCal('6');">6</button>
+        <button onclick="updateCal('-');">-</button>
+    </p>
+    <p>
+        <button onclick="updateCal('7');">7</button>
+        <button onclick="updateCal('8');">8</button>
+        <button onclick="updateCal('9');">9</button>
+        <button onclick="updateCal('*');">x</button>
+    </p>
+    <p>
+        <button onclick="updateCal('0');">0</button>
+        <button onclick="updateCal('.');">.</button>
+        <button onclick="calculateAndDisplay();">=</button>
+        <button onclick="updateCal('/');">/</button>
+    </p>
+    <p>
+        <button onclick=" calculate = ''; displayCal();" >Clear</button>
+    </p>
+    <script>
+        
+        let calculate = '';
+
+function displayCal(){
+    document.querySelector('.displayOn').innerHTML = calculate;
+}
+
+displayCal();
+
+function updateCal(value){
+    calculate = calculate + value;
+
+    displayCal();
+}
+
+function calculateAndDisplay() {
+    calculate = eval(calculate);
+    displayCal();
+    calculate = ''; // Clear the calculate variable
+}
+    </script>
+</body>
+</html>
